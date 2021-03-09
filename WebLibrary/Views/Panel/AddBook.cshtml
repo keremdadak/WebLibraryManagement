@@ -1,0 +1,28 @@
+﻿@model WebLibrary.Models.Entity.tbl_Books
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+
+    <div>
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(k => k.Book_Name, new { @class = "form-control" })
+        <label>Kitap Yazarı</label>
+        @Html.TextBoxFor(k => k.Book_Writer, new { @class = "form-control" })
+        <label>Sayfa Sayısı</label>
+        @Html.TextBoxFor(k => k.Book_NumOfPages, new { @class = "form-control" })
+        <label>Yayın Evi</label>
+        @Html.TextBoxFor(k => k.Book_Publisher, new { @class = "form-control" })
+        <label>Kitap Dili</label>
+        @Html.TextBoxFor(k => k.Book_Lang, new { @class = "form-control" })
+        <label>Kitap Basım Yılı</label>
+        @Html.TextBoxFor(k => k.Book_YearOfPrinting, new { @class = "form-control" })
+        <label>Kitap Açıklaması</label>
+        @Html.TextBoxFor(k => k.Book_Description, new { @class = "form-control" })
+        <button class="btn btn-success" style="margin-top:1%">Yeni Kitap Ekle</button>
+
+    </div>
+</form>
+

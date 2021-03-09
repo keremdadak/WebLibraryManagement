@@ -1,0 +1,38 @@
+﻿@model  WebLibrary.Models.Entity.tbl_Users
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>UserDetails</h2>
+
+@using (Html.BeginForm("UpdateUser", "Panel", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Üye No(Değiştirilemez)</label>
+        @Html.TextBoxFor(x=> x.User_ID,new {@class="form-control" })
+        <br />
+         <label>Üye Adı</label>
+        @Html.TextBoxFor(x=> x.User_Name,new {@class="form-control" })
+        <br />
+         <label>Üye Soyadı</label>
+        @Html.TextBoxFor(x=> x.User_Surname,new {@class="form-control" })
+        <br />
+         <label>Mail Adresi</label>
+        @Html.TextBoxFor(x=> x.User_Mail,new {@class="form-control" })
+        <br />
+         <label>Telefon Numarası</label>
+        @Html.TextBoxFor(x=> x.User_PhoneNumber,new {@class="form-control" })
+        <br />
+         <label>Adress</label>
+        @Html.TextBoxFor(x=> x.User_Adress,new {@class="form-control" })
+        <br />
+         <label>Üyelik Tipi</label>
+        @Html.TextBoxFor(x=> x.User_Type,new {@class="form-control" })
+        <br />
+
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

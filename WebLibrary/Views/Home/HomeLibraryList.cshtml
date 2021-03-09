@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "HomeLibraryList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitap Listesi</h2>
+<table class="table table-bordered" >
+    <tr>
+        <th>Kitap No</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Sayfa Sayısı</th>
+        <th>Yayınevi</th>
+        <th>Kitap Dili</th>
+        <th>Basım Tarihi</th>
+        
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book_ID</td>
+                <td>@item.Book_Name</td>
+                <td>@item.Book_Writer</td>
+                <td>@item.Book_NumOfPages</td>
+                <td>@item.Book_Publisher</td>
+                <td>@item.Book_Lang</td>
+                <td>@item.Book_YearOfPrinting</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

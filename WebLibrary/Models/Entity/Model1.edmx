@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_BookReserve">
+          <Key>
+            <PropertyRef Name="Reserve_ID" />
+          </Key>
+          <Property Name="Reserve_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Book_ID" Type="int" />
+          <Property Name="User_ID" Type="int" />
+          <Property Name="Book_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Reserver_Date" Type="datetime" />
+          <Property Name="User_Name" Type="varchar" MaxLength="30" />
+          <Property Name="User_Surname" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_Books">
+          <Key>
+            <PropertyRef Name="Book_ID" />
+          </Key>
+          <Property Name="Book_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Book_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Book_Writer" Type="varchar" MaxLength="100" />
+          <Property Name="Book_NumOfPages" Type="int" />
+          <Property Name="Book_Publisher" Type="nchar" MaxLength="10" />
+          <Property Name="Book_Lang" Type="varchar" MaxLength="30" />
+          <Property Name="Book_Description" Type="varchar(max)" />
+          <Property Name="Book_YearOfPrinting" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_Deposit">
+          <Key>
+            <PropertyRef Name="Deposit_ID" />
+          </Key>
+          <Property Name="Deposit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_ID" Type="int" />
+          <Property Name="Book_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="30" />
+          <Property Name="User_Surname" Type="varchar" MaxLength="30" />
+          <Property Name="User_Mail" Type="varchar" MaxLength="50" />
+          <Property Name="User_Password" Type="varchar" MaxLength="50" />
+          <Property Name="User_PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="User_Adress" Type="varchar(max)" />
+          <Property Name="User_Type" Type="tinyint" />
+          <Property Name="Book_ID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="WebLibraryModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BookReserve" EntityType="Self.tbl_BookReserve" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Books" EntityType="Self.tbl_Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Deposit" EntityType="Self.tbl_Deposit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebLibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WebLibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="WebLibraryModel.sysdiagrams" />
+          <EntitySet Name="tbl_Books" EntityType="WebLibraryModel.tbl_Books" />
+          <EntitySet Name="tbl_Deposit" EntityType="WebLibraryModel.tbl_Deposit" />
+          <EntitySet Name="tbl_Users" EntityType="WebLibraryModel.tbl_Users" />
+          <EntitySet Name="tbl_BookReserve" EntityType="WebLibraryModel.tbl_BookReserve" />
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Books">
+          <Key>
+            <PropertyRef Name="Book_ID" />
+          </Key>
+          <Property Name="Book_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Book_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Book_Writer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Book_NumOfPages" Type="Int32" />
+          <Property Name="Book_Publisher" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Book_Lang" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Book_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Book_YearOfPrinting" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Deposit">
+          <Key>
+            <PropertyRef Name="Deposit_ID" />
+          </Key>
+          <Property Name="Deposit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_ID" Type="Int32" />
+          <Property Name="Book_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="User_Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="User_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="User_Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_Type" Type="Byte" />
+          <Property Name="Book_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_BookReserve">
+          <Key>
+            <PropertyRef Name="Reserve_ID" />
+          </Key>
+          <Property Name="Reserve_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Book_ID" Type="Int32" />
+          <Property Name="User_ID" Type="Int32" />
+          <Property Name="Book_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver_Date" Type="DateTime" Precision="3" />
+          <Property Name="User_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="User_Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebLibraryModelStoreContainer" CdmEntityContainer="WebLibraryEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WebLibraryModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Books">
+            <EntityTypeMapping TypeName="WebLibraryModel.tbl_Books">
+              <MappingFragment StoreEntitySet="tbl_Books">
+                <ScalarProperty Name="Book_YearOfPrinting" ColumnName="Book_YearOfPrinting" />
+                <ScalarProperty Name="Book_Description" ColumnName="Book_Description" />
+                <ScalarProperty Name="Book_Lang" ColumnName="Book_Lang" />
+                <ScalarProperty Name="Book_Publisher" ColumnName="Book_Publisher" />
+                <ScalarProperty Name="Book_NumOfPages" ColumnName="Book_NumOfPages" />
+                <ScalarProperty Name="Book_Writer" ColumnName="Book_Writer" />
+                <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+                <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Deposit">
+            <EntityTypeMapping TypeName="WebLibraryModel.tbl_Deposit">
+              <MappingFragment StoreEntitySet="tbl_Deposit">
+                <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Deposit_ID" ColumnName="Deposit_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Users">
+            <EntityTypeMapping TypeName="WebLibraryModel.tbl_Users">
+              <MappingFragment StoreEntitySet="tbl_Users">
+                <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="User_Adress" ColumnName="User_Adress" />
+                <ScalarProperty Name="User_PhoneNumber" ColumnName="User_PhoneNumber" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Mail" ColumnName="User_Mail" />
+                <ScalarProperty Name="User_Surname" ColumnName="User_Surname" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BookReserve">
+            <EntityTypeMapping TypeName="WebLibraryModel.tbl_BookReserve">
+              <MappingFragment StoreEntitySet="tbl_BookReserve">
+                <ScalarProperty Name="User_Surname" ColumnName="User_Surname" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Reserver_Date" ColumnName="Reserver_Date" />
+                <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+                <ScalarProperty Name="Reserve_ID" ColumnName="Reserve_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

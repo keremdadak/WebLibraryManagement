@@ -1,0 +1,43 @@
+﻿@using WebLibrary.Models.Entity
+@model List<tbl_Books>
+@{
+    ViewBag.Title = "LibraryList";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Kitap Listesi</h2>
+<div>
+    <button class="btn btn-primary" type="button" onclick="location='/Panel/AddBook'" style="float:right; margin-bottom:1%;">Kitap Ekle</button>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap No</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Sayfa Sayısı</th>
+        <th>Yayınevi</th>
+        <th>Kitap Dili</th>
+        <th>Basım Tarihi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Book_ID</td>
+            <td>@item.Book_Name</td>
+            <td>@item.Book_Writer</td>
+            <td>@item.Book_NumOfPages</td>
+            <td>@item.Book_Publisher</td>
+            <td>@item.Book_Lang</td>
+            <td>@item.Book_YearOfPrinting</td>
+            <td>@Html.ActionLink("Sil", "DeleteBook", new { id = item.Book_ID }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten silmek istiyor musun ?')" })</td>
+            <td><a href="BookDetails/@item.Book_ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

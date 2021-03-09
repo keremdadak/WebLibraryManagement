@@ -1,0 +1,33 @@
+﻿@model WebLibrary.Models.Entity.tbl_Users
+@{
+    ViewBag.Title = "Yeni Kullancı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="margin-top:1%">Yeni Kullanıcı</h3>
+
+<form  method="post">
+    <div class="main">
+        <label>Adınız</label>
+        @Html.TextBoxFor(r => r.User_Name, "", new { @class = "form-control" })
+
+        <label>Soyadınız</label>
+        @Html.TextBoxFor(r => r.User_Surname, "", new { @class = "form-control" })
+
+        <label>Mail Adresiniz</label>
+        @Html.TextBoxFor(r => r.User_Mail, "", new { @class = "form-control" })
+
+        <label>Şifre giriniz</label>
+        @Html.TextBoxFor(r => r.User_Password, "", new { @class = "form-control" })
+
+        <label>Telefon Numarası</label>
+        @Html.TextBoxFor(r => r.User_PhoneNumber, "", new { @class = "form-control" })
+
+        <label>Adresiniz</label>
+        @Html.TextBoxFor(r => r.User_Adress, "", new { @class = "form-control" })
+        <br />
+        @Html.HiddenFor(r=>r.User_Type, new {Value="0"})
+        <button class="btn btn-outline-primary" >Kayıt Ol</button>
+    </div>
+</form>
+

@@ -1,0 +1,42 @@
+﻿@model WebLibrary.Models.Entity.tbl_Books
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>BookDetails</h2>
+
+@using (Html.BeginForm("BookUpdate", "Panel", FormMethod.Post))
+{ 
+<div class="form-group">
+
+    <label>Kitap ID(Değiştirilemez)</label>
+    @Html.TextBoxFor(x => x.Book_ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(l => l.Book_Name)
+    @Html.TextBoxFor(x => x.Book_Name, new { @class = "form-control" })
+    <br />
+    <label>Kitap Yazarı</label>
+    @Html.TextBoxFor(x => x.Book_Writer, new { @class = "form-control" })
+    <br />
+    <label>Sayfa Sayısı</label>
+    @Html.TextBoxFor(x => x.Book_NumOfPages, new { @class = "form-control" })
+    <br />
+    <label>Yayın Evi</label>
+    @Html.TextBoxFor(x => x.Book_Publisher, new { @class = "form-control" })
+    <br />
+    <label>Basım Yılı</label>
+    @Html.TextBoxFor(x => x.Book_YearOfPrinting, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(x => x.Book_Description, new { @class = "form-control" })
+    <br />
+    <label>Kitap Dili</label>
+    @Html.TextBoxFor(x => x.Book_Lang, new { @class = "form-control" })
+
+
+</div>
+<div>
+    <button class="btn btn-danger">Kitap Güncelle</button>
+</div>
+}

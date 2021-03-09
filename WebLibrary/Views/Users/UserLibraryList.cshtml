@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "UserLibraryList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h2>Kitap Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap No</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Sayfa Sayısı</th>
+        <th>Yayınevi</th>
+        <th>Kitap Dili</th>
+        <th>Basım Tarihi</th>
+        <th>Kitap Ayır</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book_ID</td>
+                <td>@item.Book_Name</td>
+                <td>@item.Book_Writer</td>
+                <td>@item.Book_NumOfPages</td>
+                <td>@item.Book_Publisher</td>
+                <td>@item.Book_Lang</td>
+                <td>@item.Book_YearOfPrinting</td>
+                <td>@Html.ActionLink("Rezerv Et","Reserve","Users", new { id = item.Book_ID }, new {@class="btn btn-danger" })</td>
+                
+
+            </tr>
+        }
+    </tbody>
+</table>
+@*<style>
+    .clicked {
+        background: green !important;
+    }
+
+    .un-clicked {
+        background: blue !important;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#id').click(function () {
+            if ($(this).hasClass('clicked')) {
+                $(this).removeClass('clicked');
+                $(this).addClass('un-clicked');
+            } else {
+                $(this).removeClass('un-clicked').addClass('clicked');
+            }
+        });
+    });
+</script>*@
